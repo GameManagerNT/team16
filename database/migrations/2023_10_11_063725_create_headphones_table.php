@@ -15,7 +15,8 @@ class CreateHeadphonesTable extends Migration
     {
         Schema::create('headphones', function (Blueprint $table) {
             $table->id()->comment('編號(主鍵)');
-            $table->tinyInteger('tid')->unsigned()->comment('廠商(外部鍵)');
+            $table->foreignId('tid')->comment('廠商(外部鍵)');
+            $table->foreign('tid')->references('id')->on('brands')->onDelete('cascade');
             $table->string('name')->comment('型號');
             $table->string('genre')->comment('類型');
             $table->string('hz')->comment('響應頻率');
