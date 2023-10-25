@@ -14,12 +14,13 @@ class CreateTeamsTable extends Migration
     public function up()
     {
         Schema::create('brands', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('country');
-            $table->string('founder');
-            $table->string('headquarters');
-            $table->string('web');
+            $table->id()->comment('編號');
+            $table->string('name')->comment('球隊');
+            $table->string('country')->comment('國家');
+            $table->date('since')->default('1950-01-01')->comment('成立日期');
+            $table->string('founder')->comment('創辦人');
+            $table->string('headquarters')->comment('總部');
+            $table->string('web')->comment('網站');
             $table->timestamps();
         });
     }
