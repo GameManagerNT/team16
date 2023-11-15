@@ -13,6 +13,8 @@ use App\Http\Controllers\headphonesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {
+    return redirect('brands');
+});
 Route::get('brands', [brandsController::class, 'index'])->name('brands', 'index');
 Route::get('headphones', [headphonesController::class, 'index'])->name('headphones', 'index');

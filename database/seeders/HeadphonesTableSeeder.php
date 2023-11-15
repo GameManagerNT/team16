@@ -34,7 +34,17 @@ class HeadphonesTableSeeder extends Seeder
             'Anker Soundcore Life Q30',
             'Philips PH805',
             'Edifier W820NB',
-            'Tribit QuietPlus 72'
+            'Tribit QuietPlus 72',
+            'Audio-Technica ATH-M50x',
+            'Bose QuietComfort 35 II',
+            'Sennheiser Momentum 3',
+            'Sony WH-1000XM3',
+            'JBL Live 650BTNC',
+            'Beats Solo Pro',
+            'Apple AirPods Pro',
+            'Jabra Elite 85h',
+            'Anker Soundcore Life Q20',
+            'Philips PH805'
         );
         return $names [rand(0,count($names)-1)];
     }
@@ -68,7 +78,17 @@ class HeadphonesTableSeeder extends Seeder
             '12 - 23000 Hz',
             '16 - 20000 Hz',
             '14 - 19000 Hz',
-            '180 - 22000 Hz'
+            '180 - 22000 Hz',
+            '20 - 19000Hz',
+            '18 - 20000Hz',
+            '22 - 18000Hz',
+            '21 - 19000',
+            '19 - 21000Hz',
+            '20 - 18000Hz',
+            '23 - 20000Hz',
+            '17 - 19000Hz',
+            '24 - 21000Hz',
+            '25 - 22000Hz'
         );
         return $hzrange [rand(0,count($hzrange)-1)];
     }
@@ -94,7 +114,18 @@ class HeadphonesTableSeeder extends Seeder
             '100 ',
             '97 ',
             '95 ',
-            '103 '
+            '103 ',
+            '95 ',
+            '103 ',
+            '108 ',
+            '93 ',
+            '101 ',
+            '105 ',
+            '99 ',
+            '107 ',
+            '110 ',
+            '96 '
+
         );
         return $splrange [rand(0,count($splrange)-1)];
     }
@@ -120,7 +151,17 @@ class HeadphonesTableSeeder extends Seeder
             '16 ',
             '32 ',
             '38 ',
-            '48 ' 
+            '48 ',
+            '250 ',
+            '16 ',
+            '32 ',
+            '38 ',
+            '48 ' ,
+            '16 ',
+            '32 ',
+            '38 ',
+            '48 ',
+            '65 '
         );
         return $oirange [rand(0,count($oirange)-1)];
     }
@@ -146,7 +187,17 @@ class HeadphonesTableSeeder extends Seeder
             '105 ',
             '127 ',
             '86 ',
-            '213 '
+            '213 ',
+            '76 ', 
+            '94 ',
+            '88 ',
+            '58 ',
+            '119 ',
+            '168 ',
+            '42 ',
+            '170 ',
+            '61 ',
+            '105 ',
         );
         return $weights [rand(0,count($weights)-1)];
     }
@@ -180,16 +231,27 @@ class HeadphonesTableSeeder extends Seeder
             '2980',
             '11888',
             '3666',
-            '15580'
+            '15580',
+            '1234',
+            '4567',
+            '7891',
+            '2345',
+            '5678',
+            '8912',
+            '3456',
+            '6789',
+            '9123',
+            '1000'
+
         );
         return $prices [rand(0,count($prices)-1)];
     }
     public function run()
     {
-        for($i = 0; $i<20;$i++){
+        for($i = 0; $i<30;$i++){
             $name = $this ->generateRandName();
             $genre = $this ->generateRandGenre();
-            $hz = $this ->generateRandGenre();
+            $hz = $this ->generateRandHz();
             $spl = $this ->generateRandSpl();
             $oi = $this ->generateRandOi();
             $weight = $this ->generateRandWeight();

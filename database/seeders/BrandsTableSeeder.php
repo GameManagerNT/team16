@@ -35,7 +35,17 @@ class BrandsTableSeeder extends Seeder
             'Cowin',
             'TaoTronics',
             'Anker',
-            '1MORE'
+            '1MORE',
+            'krunker', 
+            'Clearsound',
+            'Audial',
+            'Sonex',
+            'Resound',
+            'Crystal Clear',
+            'Soundscape',
+            'Audios',
+            'Sonicgear',
+            'Soundhub'
           );
           return $names [rand(0,count($names)-1)];
     } 
@@ -50,8 +60,8 @@ class BrandsTableSeeder extends Seeder
             '印度',
             '俄羅斯',
             '巴西',
-            '義大利'
-            ,'韓國',
+            '義大利',
+            '韓國',
             '墨西哥',
             '土耳其',
             '印尼',
@@ -60,7 +70,18 @@ class BrandsTableSeeder extends Seeder
             '西班牙',
             '澳大利亞',
             '泰國',
-            '南非'
+            '南非',
+            '北非',
+            '越南',
+            '土耳其',
+            '阿根廷',
+            '埃及',
+            '瑞典',
+            '芬蘭',
+            '挪威',
+            '新加坡',
+            '智利'
+
         );
         return $countries [rand(0,count($countries)-1)];
 
@@ -87,6 +108,16 @@ class BrandsTableSeeder extends Seeder
         'Oo煌oO',
         'Oo松oO',
         'Oo蓮oO',
+        'Oo趙oO',
+        'Oo錢oO',
+        'Oo孫oO',
+        'Oo李oO',
+        'Oo芙oO',
+        'Oo萍oO',
+        'Oo亨oO',
+        'Oo博oO',
+        'Oo龍oO',
+        'Oo華oO'
     );
     return $founders [rand(0,count($founders)-1)];
 }
@@ -111,7 +142,18 @@ class BrandsTableSeeder extends Seeder
             '美國新墨西哥州阿爾伯克基黑溝路308號',
             '美國華盛頓特區賓夕法尼亞大道1600號',
             '英國倫敦唐寧街10號',
-            '美國加州洛杉磯威爾夏大道10880號'
+            '美國加州洛杉磯威爾夏大道10880號',
+            '聯合國首都華光大道100號',
+            '新納米亞國都城未來路666弄',
+            '東夏國皇城前街888號',
+            '奧雷利亞共和國首都自由路56號',
+            '石衛國王都正義路789號',
+            '達沃斯坦共和國首都和平街123號',
+            '埃瑟利亞王國皇城中央廣場1號',
+            '巴蘭聯邦聯邦廣場360號',
+            '古蘭謝爾特公國首都愛國者大道789號',
+            '亞卡迪亞帝國皇城華麗大道18號'
+
         );
         return $headquarterses[rand(0,count($headquarterses)-1)];
 }
@@ -138,14 +180,24 @@ class BrandsTableSeeder extends Seeder
         'www.hilariousmemes17.com',
         'www.sidesplittinggifs18.com',
         'www.ticklingposts19.com',
-        'www.humorousquotes20.com'
+        'www.humorousquotes20.com',
+        'www.dngurjota.com ',
+        'www.mlrbaqiyc.net',
+        'www.htzcgkewo.org',
+        'www.ovtklsmhe.com',
+        'www.zyqirbnca.net',
+        'www.xhvmoyjls.org',
+        'www.cehqpzair.com',
+        'www.ugomksnyr.net' , 
+        'www.vbieldxqg.org',
+        'www.hwfzoncmb.com',
         );
         return $webs [rand(0,count($webs)-1)];
     }
 
     public function run()
     {
-        for($i = 0; $i<20;$i++){
+        for($i = 0; $i<30;$i++){
             $name = $this ->generateRandName();
             $country = $this ->generateRandCountry();
             $since = Carbon::now()->subYears(rand(48,60))->subMonths(rand(0,12))->subRealDays(rand(0,31));
