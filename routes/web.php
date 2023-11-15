@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\brandsController;
+use App\Http\Controllers\headphonesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('brands', [brandsController::class, 'index'])->name('brands', 'index');
+Route::get('headphones', [headphonesController::class, 'index'])->name('headphones', 'index');
