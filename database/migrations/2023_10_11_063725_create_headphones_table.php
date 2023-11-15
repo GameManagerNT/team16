@@ -20,8 +20,8 @@ class CreateHeadphonesTable extends Migration
             $table->string('name')->comment('型號');
             $table->string('genre')->comment('類型');
             $table->string('hz')->comment('響應頻率(HZ)');
-            $table->double('oi')->unsigned()->comment('抗阻(Ω)');
             $table->integer('spl')->unsigned()->comment('聲壓級(db/mW)');
+            $table->double('oi')->unsigned()->comment('抗阻(Ω)');
             $table->double('weight')->unsigned()->comment('重量(g)');
             $table->string('ts')->comment('傳輸');
             $table->integer('price')->unsigned()->comment('價格(NTD)');

@@ -10,13 +10,13 @@ class brand extends Model
     use HasFactory;
 
     protected $fillable = [
-        '編號',
-        '品牌名稱',
-        '國家',
-        '成立日期',
-        '創辦人',
-        '總部',
-        '網站',
+        'id',
+        'name',
+        'country',
+        'since',
+        'founder',
+        'headquarters',
+        'web',
     ];
 
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\headphone;
-class headphonesController extends Controller
+class HeadphonesController extends Controller
 {
     /**
      * Display a listing of the resource.

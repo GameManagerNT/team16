@@ -258,7 +258,7 @@ class HeadphonesTableSeeder extends Seeder
             $ts = $this ->generateRandTs();
             $price = $this ->generateRandPrice();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
-            $rand_tid = random_int(1, 20); 
+            $rand_tid = random_int(1, 30); 
             DB::table('headphones')->insert([
                 'tid' =>$rand_tid ,
                 'name' => $name,
