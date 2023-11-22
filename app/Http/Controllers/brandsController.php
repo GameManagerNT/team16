@@ -13,7 +13,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        return Brand::all()->toArray();
+        //return Brand::all()->toArray();
+        $b = Brand::all()->toArray();
+        return view('brands.index')->with('brands',$b);
     }
 
     /**
