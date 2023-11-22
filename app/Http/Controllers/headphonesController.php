@@ -13,7 +13,11 @@ class HeadphonesController extends Controller
      */
     public function index()
     {
-        return Headphone::all()->toArray();
+        //return Headphone::all()->toArray();
+        //從Model拿資料
+        $h = Headphone::all()->toArray();
+        //把資料傳送給View
+        return view('headphones.index')->with('headphones',$h);
     }
 
     /**
