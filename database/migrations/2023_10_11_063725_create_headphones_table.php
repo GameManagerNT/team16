@@ -28,7 +28,7 @@ class CreateHeadphonesTable extends Migration
             $table->timestamps();
         });
     }
-
+//test
     /**
      * Reverse the migrations.
      *
