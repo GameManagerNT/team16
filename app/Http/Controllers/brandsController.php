@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\brand;
+use App\Models\Brand;
 class BrandsController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        return brand::all()->toArray();
+        return Brand::all()->toArray();
     }
 
     /**

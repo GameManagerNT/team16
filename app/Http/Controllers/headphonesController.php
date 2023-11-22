@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\headphone;
+use App\Models\Headphone;
 class HeadphonesController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HeadphonesController extends Controller
      */
     public function index()
     {
-        return headphone::all()->toArray();
+        return Headphone::all()->toArray();
     }
 
     /**

@@ -248,6 +248,8 @@ class HeadphonesTableSeeder extends Seeder
     }
     public function run()
     {
+        $usedTids = [];
+
         for($i = 0; $i<30;$i++){
             $name = $this ->generateRandName();
             $genre = $this ->generateRandGenre();
@@ -258,10 +260,17 @@ class HeadphonesTableSeeder extends Seeder
             $ts = $this ->generateRandTs();
             $price = $this ->generateRandPrice();
             $random_datetime = Carbon::now()->subMinutes(rand(1,55));
-            $rand_tid = random_int(1, 30); 
+
+            do {
+                $tid = rand(1, 30);
+            } while (in_array($tid, $usedTids));
+    
+            $usedTids[] = $tid;
+    
+
             DB::table('headphones')->insert([
-                'tid' =>$rand_tid ,
                 'name' => $name,
+                'tid' => $tid,
                 'genre' =>$genre ,
                 'hz' => $hz,
                 'spl' =>$spl,
