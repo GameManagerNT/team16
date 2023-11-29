@@ -46,7 +46,7 @@ class HeadphonesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Headphone::findOrFail($id)->toArray();
     }
 
     /**
@@ -57,7 +57,7 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Headphone::findOrFail($id)->toArray();
     }
 
     /**

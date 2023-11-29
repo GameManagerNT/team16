@@ -46,7 +46,7 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Brand::findOrFail($id)->toArray();
     }
 
     /**
@@ -55,9 +55,10 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
-        //
+        return Brand::findOrFail($id)->toArray();
     }
 
     /**
