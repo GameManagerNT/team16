@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Headphone;
+
 class HeadphonesController extends Controller
 {
     /**
@@ -13,8 +14,9 @@ class HeadphonesController extends Controller
      */
     public function index()
     {
-        //return Headphone::all()->toArray();
+        //Model information
         $h = Headphone::all()->toArray();
+        //information to view
         return view('headphones.index')->with('headphones',$h);
     }
 
@@ -47,7 +49,7 @@ class HeadphonesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Headphone::findOrFail($id)->toArray;
     }
 
     /**
@@ -58,7 +60,7 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Headphone::findOrFail($id)->toArray;
     }
 
     /**

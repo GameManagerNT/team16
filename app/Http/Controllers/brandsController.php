@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brand;
+
 class BrandsController extends Controller
 {
     /**
@@ -13,8 +14,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        //return Brand::all()->toArray();
+        //model information;
         $b = Brand::all()->toArray();
+        //information to view
         return view('brands.index')->with('brands',$b);
     }
 
@@ -47,7 +49,7 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Brand::findOrFail($id)->toArray();
     }
 
     /**
@@ -58,7 +60,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Brand::findOrFail($id)->toArray();
     }
 
     /**
