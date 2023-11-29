@@ -1,9 +1,9 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有耳機</title>
-</head>
-<body>
+@section('title', '耳機網站 - 列出所有耳機')
+
+@section('HP_contents')
+
 <h1>列出所有耳機</h1>
 <table>
 <tr>
@@ -39,5 +39,4 @@
     <td>刪除</td>
    @endfor
 </table>
-</body>
-</html>
+@endsection
