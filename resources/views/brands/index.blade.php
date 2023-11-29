@@ -1,10 +1,8 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有廠牌</title>
-</head>
+@section('title', 'HP網站 - 列出所有廠牌')
 
-<body>
+@section('HP_contents')
 <h1>列出所有廠牌</h1>
 <table>
     <tr>
@@ -34,5 +32,4 @@
     @endfor
 </table>
 
-</body>
-</html>
+@endsection

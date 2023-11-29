@@ -1,10 +1,8 @@
-<html>
+@extends('app')
 
-<head>
-    <title>列出所有耳機</title>
-</head>
+@section('title', 'HP網站 - 列出所有耳機')
 
-<body>
+@section('HP_contents')
 <h1>列出所有耳機</h1>
 <table>
     <tr>
@@ -31,11 +29,9 @@
             <td>{{ $headphones[$i]['ts'] }}</td>
             <td>{{ $headphones[$i]['price'] }}</td>
             <td><a href="{{ route('headphones.show', ['id'=>$headphones[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('headphones.edit', ['id'=>$headphones[$i]['id']]) }}">修改</a></td>    
+            <td><a href="{{ route('brands.edit', ['id'=>$headphones[$i]['id']]) }}">修改</a></td>    
             <td>刪除</td>    
         </tr>
     @endfor
 </table>
-
-</body>
-</html>
+@endsection
