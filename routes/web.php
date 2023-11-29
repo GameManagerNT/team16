@@ -22,4 +22,4 @@ Route::get('brands/{id}', [brandsController::class, 'show'])->where('id', '[0-9]
 Route::get('brands/{id}/edit', [brandsController::class, 'edit'])->where('id', '[0-9]+')->name('brands.edit');
 Route::get('headphones', [headphonesController::class, 'index'])->name('headphones', 'index');
 Route::get('headphones/{id}', [headphonesController::class, 'show'])->where('id', '[0-9]+')->name('headphones.show');
-Route::get('headphones/{id}/edit', [brandsController::class, 'edit'])->where('id', '[0-9]+')->name('headphones.edit');
+Route::get('headphones/{id}/edit', [headphonesController::class, 'edit'])->where('id', '[0-9]+')->name('headphones.edit');
