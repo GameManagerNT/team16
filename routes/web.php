@@ -20,7 +20,9 @@ Route::get('/', function () {
 Route::get('brands', [brandsController::class, 'index'])->name('brands.index');
 Route::get('brands/{id}',[BrandsController::class,'show'])->where('id','[0-9]+')->name('brands.show');
 Route::get('brands/{id}/edit',[BrandsController::class,'edit'])->where('id','[0-9]+')->name('brands.edit');
+Route::delete('brands/delete/{id}', [BrandsController::class, 'destroy'])->where('id', '[0-9]+')->name('brands.destroy');
 
 Route::get('headphones', [HeadphonesController::class, 'index'])->name('headphones.index');
 Route::get('headphones/{id}',[HeadphonesController::class,'show'])->where('id','[0-9]+')->name('headphones.show');
 Route::get('headphones/{id}/edit',[HeadphonesController::class,'edit'])->where('id','[0-9]+')->name('headphones.edit');
+Route::delete('headphones/delete/{id}', [HeadphonesController::class, 'destroy'])->where('id', '[0-9]+')->name('headphones.destroy');

@@ -20,4 +20,10 @@ class Headphone extends Model
         'ts',
         'price',
     ];
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\Brand','tid','id');
+    }
+    
+        
 }

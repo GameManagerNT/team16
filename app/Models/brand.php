@@ -19,4 +19,15 @@ class Brand extends Model
         'web',
     ];
 
+    public function headphones()
+    {
+        return $this->hasMany('App\Models\Headphone','tid');
+    }
+
+    public function delete()
+    {
+        $this->headphones()->delete();
+        return parent::delete();
+    }
+
 }

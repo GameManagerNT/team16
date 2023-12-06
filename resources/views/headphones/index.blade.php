@@ -30,7 +30,7 @@
         @foreach ($headphones as $headphone)
         <tr>
             <td>{{ $headphone->id}} </td>
-            <td>{{ $headphone->tid}} </td>
+            <td>{{ $headphone->brand->name}} </td>
             <td>{{ $headphone->name}} </td>
             <td>{{ $headphone->genre}} </td>
             <td>{{ $headphone->hz}} </td>
@@ -41,7 +41,12 @@
             <td>{{ $headphone->price}} </td>
             <td><a href="{{ route('headphones.show',['id'=>$headphone->id]) }}">顯示</a></td>
             <td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
-            <td>刪除</td>
+            <td><form action="{{ url('/headphones/delete', ['id' => $headphone->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>
         </tr>
 
         @endforeach

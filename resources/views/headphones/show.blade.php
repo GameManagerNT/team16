@@ -5,7 +5,7 @@
 @section('HP_contents')
 
 編號:{{ $headphone->id}}<br/>
-廠商:{{ $headphone->tid}}<br/>
+廠商:{{ $headphone->brand->name}}<br/>
 型號:{{ $headphone->name}}<br/>
 類型:{{ $headphone->genre}}<br/>
 響應頻率:{{ $headphone->hz}}<br/>
