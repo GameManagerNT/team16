@@ -15,9 +15,14 @@ class BrandsController extends Controller
     {
         //return Brand::all()->toArray();
         //從Model拿資料
-        $p = Brand::all()->toArray();
+        //$p = Brand::all()->toArray();
         //把資料傳送給View
-        return view('brands.index')->with('brands',$p);
+        //return view('brands.index')->with('brands',$p);
+        
+        // 從 Model 拿資料
+        $brands = Brand::all();
+        // 把資料送給 view
+        return view('brands.index')->with('brands', $brands);
     }
 
     /**
@@ -48,8 +53,11 @@ class BrandsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return Brand::findOrFail($id)->toArray();
+    { 
+        $brand = Brand::findOrFail($id);
+        return view('brands.show')->with('brand',$brand);
+        
+         //Brand::findOrFail($id)->toArray();
     }
 
     /**

@@ -14,6 +14,7 @@
     <table>
         <tr>
             <th>編號</th>
+            <th>廠商</th>
             <th>型號</th>
             <th>類型</th>
             <th>響應頻率</th>
@@ -26,23 +27,24 @@
             <th>操作2</th>
             <th>操作3</th>
         </tr>
-        @for($i=0; $i<count($headphones); $i++)
+        @foreach ($headphones as $headphone)
         <tr>
-            <td>{{ $headphones[$i]['id']}} </td>
-            <td>{{ $headphones[$i]['name']}} </td>
-            <td>{{ $headphones[$i]['genre']}} </td>
-            <td>{{ $headphones[$i]['hz']}} </td>
-            <td>{{ $headphones[$i]['spl']}} </td>
-            <td>{{ $headphones[$i]['oi']}} </td>
-            <td>{{ $headphones[$i]['weight']}} </td>
-            <td>{{ $headphones[$i]['ts']}} </td>
-            <td>{{ $headphones[$i]['price']}} </td>
-            <td><a href="{{ route('headphones.show',['id'=>$headphones[$i]['id']]) }}">顯示</td>
-            <td><a href="{{ route('headphones.edit',['id'=>$headphones[$i]['id']]) }}">修改</td>
+            <td>{{ $headphone->id}} </td>
+            <td>{{ $headphone->tid}} </td>
+            <td>{{ $headphone->name}} </td>
+            <td>{{ $headphone->genre}} </td>
+            <td>{{ $headphone->hz}} </td>
+            <td>{{ $headphone->spl}} </td>
+            <td>{{ $headphone->oi}} </td>
+            <td>{{ $headphone->weight}} </td>
+            <td>{{ $headphone->ts}} </td>
+            <td>{{ $headphone->price}} </td>
+            <td><a href="{{ route('headphones.show',['id'=>$headphone->id]) }}">顯示</a></td>
+            <td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>
 
-        @endfor
-    <table>
+        @endforeach
+    </table>
 
 @endsection

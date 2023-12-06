@@ -26,20 +26,20 @@
             <th>操作3</th>
         </tr>
 
-        @for($i=0; $i<count($brands); $i++)
+        @foreach ($brands as $brand)
         <tr>  
-            <td>{{$brands[$i]['id']}}</td>
-            <td>{{ $brands[$i]['name']}} </td>
-            <td>{{ $brands[$i]['country']}} </td>
-            <td>{{ $brands[$i]['since']}} </td>
-            <td>{{ $brands[$i]['founder']}} </td>
-            <td>{{ $brands[$i]['headquarters']}} </td>
-            <td>{{ $brands[$i]['web']}} </td>
-            <td><a href="{{ route('brands.show',['id'=>$brands[$i]['id']]) }}">顯示</td>
-            <td><a href="{{ route('brands.edit',['id'=>$brands[$i]['id']]) }}">修改</td>
+            <td>{{ $brand->id}}</td>
+            <td>{{ $brand->name}} </td>
+            <td>{{ $brand->country}} </td>
+            <td>{{ $brand->since}} </td>
+            <td>{{ $brand->founder}} </td>
+            <td>{{ $brand->headquarters}} </td>
+            <td>{{ $brand->web}} </td>
+            <td><a href="{{ route('brands.show',['id'=>$brand->id]) }}">顯示</a></td>
+            <td><a href="{{ route('brands.edit',['id'=>$brand->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>
-        @endfor
-    <table>
+        @endforeach
+    </table>
 
     @endsection

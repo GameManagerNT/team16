@@ -15,9 +15,12 @@ class HeadphonesController extends Controller
     {
         //return Headphone::all()->toArray();
         //從Model拿資料
-        $h = Headphone::all()->toArray();
+        //$h = Headphone::all()->toArray();
         //把資料傳送給View
-        return view('headphones.index')->with('headphones',$h);
+        //return view('headphones.index')->with('headphones',$h);
+        $headphones = Headphone::all();
+        // 把資料送給 view
+        return view('headphones.index')->with('headphones', $headphones);
     }
 
     /**
@@ -49,7 +52,14 @@ class HeadphonesController extends Controller
      */
     public function show($id)
     {
-        return Headphone::findOrFail($id)->toArray();
+       // $headphone = Heanphone::findOrFail($id);
+       // return view('headphones.show')->with('headphone',$headphone);
+
+       //$headphones = Headphone::all();
+        // 把資料送給 view
+        //return view('headphones.index')->with('headphones', $headphones);
+        $headphone = Headphone::findOrFail($id);
+        return view('headphones.show')->with('headphone',$headphone);
     }
 
     /**
