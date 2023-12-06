@@ -13,8 +13,8 @@ class HeadphonesController extends Controller
      */
     public function index()
     {
-       $h = Headphone::all()->toArray();
-       return view('headphones.index')->with('headphones', $h);
+       $headphone = Headphone::all();
+       return view('headphones.index')->with('headphones', $headphone);
     }
 
     /**
@@ -46,7 +46,8 @@ class HeadphonesController extends Controller
      */
     public function show($id)
     {
-        return Headphone::findOrFail($id)->toArray();
+        $headphone = Headphone::findOrFail($id);
+        return view('headphones.show')->with('headphone', $headphone);
     }
 
     /**
