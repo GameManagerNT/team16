@@ -84,6 +84,8 @@ class HeadphonesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $headphone = Headphone::findOrFail($id);
+        $headphone ->delete();
+        return redirect('headphones');
     }
 }

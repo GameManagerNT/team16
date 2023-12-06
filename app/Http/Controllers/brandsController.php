@@ -50,7 +50,8 @@ class BrandsController extends Controller
     public function show($id)
     {
         $brand = Brand::findOrFail($id);
-        return view('brands.show')->with('brand',$brand);
+        $headphones = $brand->headphones;
+        return view('brands.show',['brand'=>$brand,'headphones'=>$headphones]);
     }
 
     /**
@@ -84,6 +85,8 @@ class BrandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        $brand ->delete();
+        return redirect('brands');
     }
 }
