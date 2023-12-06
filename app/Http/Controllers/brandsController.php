@@ -15,9 +15,9 @@ class BrandsController extends Controller
     public function index()
     {
         //model information;
-        $b = Brand::all()->toArray();
+        $brands = Brand::all();
         //information to view
-        return view('brands.index')->with('brands',$b);
+        return view('brands.index')->with('brands',$brands);
     }
 
     /**
@@ -49,7 +49,8 @@ class BrandsController extends Controller
      */
     public function show($id)
     {
-        return Brand::findOrFail($id)->toArray();
+        $brand = Brand::findOrFail($id);
+        return view('brands.show')->with('brand',$brand);
     }
 
     /**

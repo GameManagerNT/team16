@@ -15,9 +15,9 @@ class HeadphonesController extends Controller
     public function index()
     {
         //Model information
-        $h = Headphone::all()->toArray();
+        $headphone = Headphone::all();
         //information to view
-        return view('headphones.index')->with('headphones',$h);
+        return view('headphones.index')->with('headphones',$headphone);
     }
 
     /**
@@ -49,7 +49,8 @@ class HeadphonesController extends Controller
      */
     public function show($id)
     {
-        return Headphone::findOrFail($id)->toArray;
+        $headphone = Headphone::findOrFail($id);
+        return view('headphones.show')->with('headphone',$headphone);
     }
 
     /**
@@ -60,7 +61,7 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
-        return Headphone::findOrFail($id)->toArray;
+        return Headphone::findOrFail($id)->toArray();
     }
 
     /**
