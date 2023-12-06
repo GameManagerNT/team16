@@ -7,8 +7,8 @@
 <h1>列出所有耳機</h1>
 <table>
 <tr>
-    <th>編號(主鍵)</th>
-    <th>廠商(外部鍵)</th>
+    <th>編號</th>
+    <th>廠商</th>
     <th>型號</th>
     <th>類型</th>
     <th>響應頻率(HZ)</th>
@@ -25,7 +25,7 @@
 @foreach($headphones as $headphone)
 <tr>
     <td>{{ $headphone->id}}</td>
-    <td>{{ $headphone->tid}}</td>
+    <td>{{ $headphone->brand->name}}</td>
     <td>{{ $headphone->name}}</td>
     <td>{{ $headphone->genre}}</td>
     <td>{{ $headphone->hz}}</td>
@@ -36,7 +36,14 @@
     <td>{{ $headphone->price}}</td>
     <td><a href="{{ route('headphones.show',['id'=>$headphone->id]) }}">顯示</a></td>
     <td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
-    <td>刪除</td>
+    <td>
+        <form action="{{ url('/headphones/delete', ['id' =>$headphone->id])}}" method ="post">
+            <input class="btn btn-default" type="submit" value="刪除" />
+            @method('delete')
+            @csrf
+</form>
+</td>
+</tr>
    @endforeach
 </table>
 @endsection

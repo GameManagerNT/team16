@@ -5,8 +5,8 @@
 @section('HP_contents')
 
 <tr>
-    編號(主鍵):{{ $headphone->id}}<br/>
-    廠商(外部鍵):{{ $headphone->tid}}<br/>
+    編號:{{ $headphone->id}}<br/>
+    廠商:{{ $headphone->brand->name}}<br/>
     型號:{{ $headphone->name}}<br/>
     類型:{{ $headphone->genre}}<br/>
     響應頻率(HZ):{{ $headphone->hz}}<br/>
