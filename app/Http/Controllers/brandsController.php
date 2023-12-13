@@ -32,7 +32,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -43,7 +43,23 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $country = $request->input('country');
+        $since = $request->input('since');
+        $founder = $request->input('founder');
+        $headquarters = $request->input('headquarters');
+        $web = $request->input('web');
+
+        Brand::create([
+            'name' => $name,
+            'country' => $country,
+            'since' => $since,
+            'founder' => $founder,
+            'headquarters' => $headquarters,
+            'web' => $web
+        ]);
+
+        return redirect('brands');
     }
 
     /**
@@ -69,7 +85,9 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        return Brand::findOrFail($id)->toArray();
+        //return Brand::findOrFail($id)->toArray();
+        $brand = Brand::findOrFail($id);
+        return view('brands.edit', ['brand'=>$brand]);
     }
 
     /**
@@ -81,7 +99,17 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        $brand->name = $request->input('name');
+        $brand->country = $request->input('country');
+        $brand->since = $request->input('since');
+        $brand->founder = $request->input('founder');
+        $brand->headquarters = $request->input('headquarters');
+        $brand->web = $request->input('web');
+        $brand->save();
+
+        return redirect('brands');
     }
 
     /**
