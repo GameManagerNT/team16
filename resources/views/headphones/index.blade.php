@@ -1,10 +1,13 @@
 @extends('app')
 
 @section('title', '耳機網站 - 列出所有耳機')
+@section('HP_theme', '耳機品項')
 
 @section('HP_contents')
-
-<h1>列出所有耳機</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('headphones.create') }} ">新增耳機</a>
+    <a href="{{ route('headphones.index') }} ">所有耳機</a>
+</div>
 <table>
 <tr>
     <th>編號</th>

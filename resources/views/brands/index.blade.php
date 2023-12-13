@@ -1,10 +1,11 @@
 @extends('app')
 
 @section('title', '耳機網站 - 列出所有廠牌')
-
+@section('HP_theme', '廠牌資訊')
 @section('HP_contents')
-
-<h1>列出所有廠牌</h1>
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('brands.create') }} ">新增廠牌</a>
+    <a href="{{ route('brands.index') }} ">所有廠牌</a>
 
 <table>
 <tr>
