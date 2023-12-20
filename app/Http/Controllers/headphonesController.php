@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Headphone;
 use App\Models\Brand;
+use App\Http\Requests\CreateHeadphoneRequest;
+
 class HeadphonesController extends Controller
 {
     /**
@@ -36,7 +37,7 @@ class HeadphonesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateHeadphoneRequest $request)
     {
         $tid = $request->input('tid');
         $name = $request->input('name');
@@ -95,7 +96,7 @@ class HeadphonesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateHeadphoneRequest $request, $id)
     {
         $headphone = Headphone::findOrFail($id);
 
