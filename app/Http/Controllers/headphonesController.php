@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Headphone;
 use App\Models\brand;
+use App\Http\Requests\CreateHeadphoneRequest;
 
 class HeadphonesController extends Controller
 {
@@ -29,7 +29,7 @@ class HeadphonesController extends Controller
     public function create()
     {
         $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.name', 'brands.id');
-        return view('headphones.create', ['brands' =>$brands, 'teamSelected' => null]);
+        return view('headphones.create', ['brands' =>$brands, 'brandSelected' => null]);
     }
 
     /**
@@ -38,7 +38,7 @@ class HeadphonesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateHeadphoneRequest $request)
     {
         $name = $request->input('name');
         $tid = $request->input('tid');
@@ -96,7 +96,7 @@ class HeadphonesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateHeadphoneRequest $request, $id)
     {
         $headphone = Headphone::findOrFail($id);
         $headphone->name = $request->input('name');

@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('genre','種類: ') !!}
-    {!! Form::text('genre',null ,['class'=>'form-control']) !!}
+    {!! Form::text('genre',null ,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('hz','頻率響應: ') !!}
