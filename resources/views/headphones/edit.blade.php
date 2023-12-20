@@ -5,7 +5,8 @@
 @section('HP_theme', '編輯中的耳機')
 
 @section('HP_contents')
-    {!! Form::model($headphone, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\HeadphonesController@update', $headphone->id]]) !!}
-    @include('headphones.form', ['submitButtonText'=>"更新耳機資料"])
-    {!! Form::close() !!}
+@include('message.list')
+{!! Form::model($headphone, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\HeadphonesController@update', $headphone->id]]) !!}
+ @include('headphones.form', ['submitButtonText'=>"更新耳機資料"])
+{!! Form::close() !!}
 @endsection
