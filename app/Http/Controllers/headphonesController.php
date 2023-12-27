@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Headphone;
 use App\Models\Brand;
 use App\Http\Requests\CreateHeadphoneRequest;
+use Illuminate\Http\Request;
+
+
 
 
 class HeadphonesController extends Controller
@@ -20,12 +23,36 @@ class HeadphonesController extends Controller
         //return Headphone::all()->toArray();
         //從Model拿資料
         //$h = Headphone::all()->toArray();
-        //把資料傳送給View
-        //return view('headphones.index')->with('headphones',$h);
-        $headphones = Headphone::all();
+        
+        $headphones = Headphone::paginate(10);
+        $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
         // 把資料送給 view
-        return view('headphones.index')->with('headphones', $headphones);
+        //return view('headphones.index')->with('headphones',$h);
+        //return view('headphones.index')->with('headphones', $headphones);
+        return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres, 'selectedGenre'=>null]);
     }
+
+    public function cheappirce()
+    {
+         $headphones = Headphone::cheappirce()->paginate(10);
+         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+         return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres, 'selectedGenre'=>null]);
+    }
+    
+    public function eppirce()
+    {
+         $headphones = Headphone::eppirce()->paginate(10);
+         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+         return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres, 'selectedGenre'=>null]);
+    }
+
+    public function genre(Request $request)
+    {
+        $headphones = Headphone::genre($request->input('gen'))->paginate(10);
+        $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+        $selectedGenre = $request->input('gen');
+        return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres, 'selectedGenre'=>$selectedGenre]);
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -144,4 +171,6 @@ class HeadphonesController extends Controller
         $headphone->delete();
         return redirect('headphones');
     }
+
+    
 }

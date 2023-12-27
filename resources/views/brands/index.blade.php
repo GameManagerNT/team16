@@ -8,6 +8,8 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('brands.create') }} ">新增廠牌</a>
     <a href="{{ route('brands.index') }} ">所有廠牌</a>
+    <a href="{{ route('brands.classic') }} ">經典廠牌</a>
+
 </div>
 
     <table>

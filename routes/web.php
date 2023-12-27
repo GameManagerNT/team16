@@ -34,6 +34,10 @@ Route::patch('brands/update/{id}', [BrandsController::class, 'update'])->where('
 // 儲存新球隊資料
 Route::post('brands/store', [BrandsController::class, 'store'])->name('brands.store');
 
+Route::get('brands/classic', [BrandsController::class, 'classic'])->name('brands.classic');
+
+
+
 
 // 顯示顯示所有球隊資料
 Route::get('headphones', [HeadphonesController::class, 'index'])->name('headphones.index');
@@ -51,3 +55,11 @@ Route::get('headphones/{id}/edit', [HeadphonesController::class, 'edit'])->where
 Route::patch('headphones/update/{id}', [HeadphonesController::class, 'update'])->where('id', '[0-9]+')->name('headphones.update');
 // 儲存新球員資料
 Route::post('headphones/store', [HeadphonesController::class, 'store'])->where('id', '[0-9]+')->name('headphones.store');
+//便宜耳機
+Route::get('headphones/cheappirce', [HeadphonesController::class, 'cheappirce'])->name('headphones.cheappirce');
+//奢華耳機
+Route::get('headphones/eppirce', [HeadphonesController::class, 'eppirce'])->name('headphones.eppirce');
+//選定位置查詢耳機
+Route::get('headphones/genre', [HeadphonesController::class, 'genre'])->name('headphones.genre');
+
+

@@ -27,6 +27,12 @@ class BrandsController extends Controller
         return view('brands.index')->with('brands', $brands);
     }
 
+    public function classic()
+    {
+         $brand = Brand::classic()->get();
+         return view('brands.index')->with('brands', $brand);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

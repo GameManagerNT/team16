@@ -30,4 +30,10 @@ class Brand extends Model
         return parent::delete();
     }
 
+    public function scopeClassic($query)
+    {
+        return $query->where('since', '<', '1970-01-01')->orderBy('since', 'asc');        
+        //年分 且由小到大
+    }
+
 }
