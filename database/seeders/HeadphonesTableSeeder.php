@@ -52,9 +52,10 @@ class HeadphonesTableSeeder extends Seeder
     public function generateRandGenre(){
         $genres=array(
             '封閉式耳機',
-            '入耳式耳機'
+            '開放式耳機',
+            '入耳式耳機' // 新增的元素
         );
-        return $genres [rand(0,count($genres)-1)];
+        return $genres[rand(0,count($genres)-1)];
     }
 
     public function generateRandHz(){
