@@ -7,6 +7,13 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('headphones.create') }} ">新增耳機</a>
     <a href="{{ route('headphones.index') }} ">所有耳機</a>
+    <a href="{{ route('headphones.cheappirce') }} ">便宜耳機</a>
+    <a href="{{ route('headphones.richpirce') }} ">奢華耳機</a>
+    <form action="{{ url('headphones/genre') }}" method='GET'>
+    {!! Form::label('gen', '選取類型:') !!}
+    {!! Form::select('gen', $genres, $selectedGenre,['class' => 'form-control']) !!}
+    <input class ="btn btn-default" type="submit" value="查詢" />
+</form>
 </div>
 <table>
 <tr>
@@ -49,4 +56,5 @@
 </tr>
    @endforeach
 </table>
+{{ $headphones->withQueryString()->links() }}
 @endsection

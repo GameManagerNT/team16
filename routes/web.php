@@ -17,8 +17,10 @@ Route::get('/', function () {
     return redirect('brands');
 });
 
-// 顯示顯示所有廠牌資料
+// 顯示所有廠牌資料
 Route::get('brands', [BrandsController::class, 'index'])->name('brands.index');
+//顯示經典廠牌
+Route::get('brands/classic', [BrandsController::class, 'classic'])->name('brands.classic');
 // 顯示單一廠牌資料
 Route::get('brands/{id}', [BrandsController::class, 'show'])->where('id', '[0-9]+')->name('brands.show');
 // 修改單一廠牌表單
@@ -34,8 +36,15 @@ Route::patch('brands/update/{id}', [BrandsController::class, 'update'])->where('
 // 儲存新球隊資料
 Route::post('brands/store', [BrandsController::class, 'store'])->name('brands.store');
 
-// 顯示顯示所有耳機資料
+
+// 顯示所有耳機資料
 Route::get('headphones', [HeadphonesController::class, 'index'])->name('headphones.index');
+//查詢耳機類型
+Route::get('headphones/genre', [HeadphonesController::class, 'genre'])->name('headphones.genre');
+// 顯示便宜耳機資料
+Route::get('headphones/cheappirce', [HeadphonesController::class, 'cheappirce'])->name('headphones.cheappirce');
+// 顯示奢華耳機資料
+Route::get('headphones/richpirce', [HeadphonesController::class, 'richpirce'])->name('headphones.richpirce');
 // 顯示單一耳機資料
 Route::get('headphones/{id}', [HeadphonesController::class, 'show'])->where('id', '[0-9]+')->name('headphones.show');
 // 修改單一耳機表單

@@ -24,4 +24,22 @@ class Headphone extends Model
     {
         return $this->belongsTo('App\Models\Brand','tid', 'id');
     }
+
+    public function scopeCheappirce($query)
+    {
+        return $query->where('price', '<', 5000) ->orderBy('price', 'asc');
+    }
+    public function scopeRichpirce($query)
+    {
+        return $query->where('price', '>', 5000) ->orderBy('price', 'desc');
+    }
+    public function scopeAllGenres($query)
+    { 
+        return $query->select('genre')->groupBy('genre');
+    }
+
+    public function scopeGenre($query, $gen)
+    {
+        return $query->where('genre', '=', $gen);
+    }    
 }

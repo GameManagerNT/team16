@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Headphone;
 use App\Models\Brand;
 use App\Http\Requests\CreateHeadphoneRequest;
+use Illuminate\Http\Request;
 
 class HeadphonesController extends Controller
 {
@@ -15,10 +16,32 @@ class HeadphonesController extends Controller
      */
     public function index()
     {
-       $headphone = Headphone::all();
-       return view('headphones.index')->with('headphones', $headphone);
+       $headphones = Headphone::paginate(10);
+       $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+       return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres,'selectedGenre' => null]);
     }
 
+    public function cheappirce()
+    {
+         $headphones = Headphone::cheappirce()->paginate(10);
+         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+         return view('headphones.index',['headphones' => $headphones, 'selectedGenre' => null]);
+    }
+
+    public function richpirce()
+    {
+         $headphones = Headphone::richpirce()->paginate(10);
+         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+         return view('headphones.index',['headphones' => $headphones, 'selectedGenre' => null]);
+    }
+
+    public function genre(Request $request)
+{
+    $headphones = Headphone::genre($request->input('gen'))->paginate(10);
+    $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
+    $selectedGenre = $request->input('gen');
+    return view('headphones.index', ['headphones' => $headphones, 'genres'=>$genres, 'selectedGenre'=>$selectedGenre]);
+}
     /**
      * Show the form for creating a new resource.
      *

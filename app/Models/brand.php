@@ -28,5 +28,9 @@ class Brand extends Model
         $this->headphones()->delete();
         return parent::delete();
     }
+    public function scopeClassic($query)
+    {
+        return $query->where('since', '<', '1970-01-01') ->orderBy('since', 'asc');
+    }
 
 }
