@@ -28,8 +28,12 @@
     <th>傳輸</th>
     <th>價格(NTD)</th>
     <th>操作1</th>
+    @can('admin')
     <th>操作2</th>
     <th>操作3</th>
+    @elsecan('manager')
+    <th>操作2</th>
+    @endcan
 
 </tr>
 @foreach($headphones as $headphone)
@@ -45,6 +49,7 @@
     <td>{{ $headphone->ts}}</td>
     <td>{{ $headphone->price}}</td>
     <td><a href="{{ route('headphones.show',['id'=>$headphone->id]) }}">顯示</a></td>
+    @can('admin')
     <td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
     <td>
         <form action="{{ url('/headphones/delete', ['id' =>$headphone->id])}}" method ="post">
@@ -53,6 +58,9 @@
             @csrf
 </form>
 </td>
+@elsecan('manager')
+td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
+@endcan
 </tr>
    @endforeach
 </table>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\HeadphonesController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,7 @@ use App\Http\Controllers\HeadphonesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
     return redirect('brands');
 });
@@ -26,15 +28,15 @@ Route::get('brands/{id}', [BrandsController::class, 'show'])->where('id', '[0-9]
 // 修改單一廠牌表單
 Route::get('brands/{id}/edit', [BrandsController::class, 'edit'])->where('id', '[0-9]+')->name('brands.edit');
 // 刪除單一廠商及旗下耳機資料
-Route::delete('brands/delete/{id}', [BrandsController::class, 'destroy'])->where('id', '[0-9]+')->name('brands.destroy');
-// 新增廠商表單
-Route::get('brands/create', [BrandsController::class, 'create'])->name('brands.create');
-// 修改廠商表單
+Route::delete('brands/delete/{id}', [BrandsController::class, 'destroy'])->where('id', '[0-9]+')->name('brands.destroy')->middleware('can:admin');
+// 新增廠牌表單
+Route::get('brands/create', [BrandsController::class, 'create'])->name('brands.create')->middleware('can:admin');
+// 修改廠牌表單
 Route::get('brands/{id}/edit', [BrandsController::class, 'edit'])->where('id', '[0-9]+')->name('brands.edit');
-// 修改球隊資料
+// 修改廠牌資料
 Route::patch('brands/update/{id}', [BrandsController::class, 'update'])->where('id', '[0-9]+')->name('brands.update');
-// 儲存新球隊資料
-Route::post('brands/store', [BrandsController::class, 'store'])->name('brands.store');
+// 儲存新廠牌資料
+Route::post('brands/store', [BrandsController::class, 'store'])->name('brands.store')->middleware('can:admin');
 
 
 // 顯示所有耳機資料
@@ -50,12 +52,16 @@ Route::get('headphones/{id}', [HeadphonesController::class, 'show'])->where('id'
 // 修改單一耳機表單
 Route::get('headphones/{id}/edit', [HeadphonesController::class, 'edit'])->where('id', '[0-9]+')->name('headphones.edit');
 // 刪除單一耳機資料
-Route::delete('headphones/delete/{id}', [HeadphonesController::class, 'destroy'])->where('id', '[0-9]+')->name('headphones.destroy');
+Route::delete('headphones/delete/{id}', [HeadphonesController::class, 'destroy'])->where('id', '[0-9]+')->name('headphones.destroy')->middleware('can:admin');
 // 新增耳機表單
-Route::get('headphones/create', [HeadphonesController::class, 'create'])->name('headphones.create');
+Route::get('headphones/create', [HeadphonesController::class, 'create'])->name('headphones.create')->middleware('can:admin');
 // 修改耳機表單
 Route::get('headphones/{id}/edit', [HeadphonesController::class, 'edit'])->where('id', '[0-9]+')->name('headphones.edit');
 // 修改耳機資料
 Route::patch('headphones/update/{id}', [HeadphonesController::class, 'update'])->where('id', '[0-9]+')->name('headphones.update');
 // 儲存新耳機資料
-Route::post('headphones/store', [HeadphonesController::class, 'store'])->where('id', '[0-9]+')->name('headphones.store');
+Route::post('headphones/store', [HeadphonesController::class, 'store'])->where('id', '[0-9]+')->name('headphones.store')->middleware('can:admin');
+});
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -106,6 +106,8 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+        
         $headphone = Headphone::findOrFail($id);
         $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.name', 'brands.id');
         $selected_tags = $headphone->brand->id;
