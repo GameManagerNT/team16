@@ -6,7 +6,9 @@
 
 @section('HP_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
     <a href="{{ route('headphones.create') }} ">新增耳機</a>
+    @endcan
     <a href="{{ route('headphones.index') }} ">所有耳機</a>
     <a href="{{ route('headphones.rich') }} ">奢華耳機</a>
     <a href="{{ route('headphones.cheap') }} ">平價耳機</a>    
@@ -28,7 +30,13 @@
         <th>重量</th>
         <th>傳輸</th>
         <th>價格</th>
-        <th>操作</th>
+        <th>操作1</th>
+        @can('admin')
+        <th>操作2</th>
+        <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
     @foreach ($headphones as $headphone)
         <tr>
@@ -42,6 +50,7 @@
             <td>{{ $headphone->ts }}</td>
             <td>{{ $headphone->price }}</td>
             <td><a href="{{ route('headphones.show', ['id'=>$headphone->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}">修改</a></td>    
             <td>
                 <form action="{{ url('/headphones/delete',['id'=>$headphone->id])}}"method="post">
@@ -49,7 +58,10 @@
                     @method('delete')
                     @csrf
                 </form>
-            </td>    
+            </td>        
+            @elsecan('manager')
+            <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}">修改</a></td>
+            @endcan
         </tr>
     @endforeach
 <table>

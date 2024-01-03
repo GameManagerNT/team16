@@ -80,6 +80,8 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $brand = Brand::findOrFail($id);
         return view('brands.edit', ['brand'=>$brand]);
     }

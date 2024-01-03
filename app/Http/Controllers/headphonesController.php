@@ -25,13 +25,13 @@ class HeadphonesController extends Controller
     {
         $headphones = Headphone::cheap()->paginate(10);
         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
-        return view('headphones.index', ['headphones' => $headphones,'selectedGenre'=>null]);
+        return view('headphones.index', ['headphones' => $headphones,'genres'=>$genres,'selectedGenre'=>null]);
     }
     public function rich()
     {
         $headphones = Headphone::rich()->paginate(10);
         $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
-        return view('headphones.index', ['headphones' => $headphones,'selectedGenre'=>null]);
+        return view('headphones.index', ['headphones' => $headphones,'genres'=>$genres,'selectedGenre'=>null]);
     }
     public function genre(Request $request)
     {
@@ -103,6 +103,8 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
+
         $headphone = Headphone::findOrFail($id);
         $brands = Brand::orderBy('brands.id', 'asc')->pluck('brands.name', 'brands.id');
         $selected_tags = $headphone->brand->id;
