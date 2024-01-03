@@ -56,20 +56,20 @@
 
         .bg-white {
             --bg-opacity: 1;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, var(--bg-opacity))
+             background-color: #add8e6; /* 淺藍色 */
+            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
         }
 
         .bg-gray-100 {
             --bg-opacity: 1;
-            background-color: #f7fafc;
-            background-color: rgba(247, 250, 252, var(--bg-opacity))
+             background-color: #add8e6; /* 淺藍色 */
+            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
         }
 
         .border-gray-200 {
-            --border-opacity: 1;
-            border-color: #edf2f7;
-            border-color: rgba(237, 242, 247, var(--border-opacity))
+            --bg-opacity: 1;
+             background-color: #add8e6; /* 淺藍色 */
+            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
         }
 
         .border-t {
@@ -357,14 +357,14 @@
         @media (prefers-color-scheme: dark) {
             .dark\:bg-gray-800 {
                 --bg-opacity: 1;
-                background-color: #2d3748;
-                background-color: rgba(45, 55, 72, var(--bg-opacity))
+                background-color: #add8e6; /* 淺藍色 */
+            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
             }
 
             .dark\:bg-gray-900 {
                 --bg-opacity: 1;
-                background-color: #1a202c;
-                background-color: rgba(26, 32, 44, var(--bg-opacity))
+                background-color: #add8e6; /* 淺藍色 */
+            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
             }
 
             .dark\:border-gray-700 {

@@ -126,6 +126,8 @@ class HeadphonesController extends Controller
      */
     public function edit($id)
     {
+        parent::__construct();
+        
        // $headphone = Headphone::findOrFail($id);
        // return view('headphones.edit', ['headphone' =>$headphone]);
        $headphone = Headphone::findOrFail($id);

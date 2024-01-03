@@ -22,8 +22,12 @@
             <th>總部</th>
             <th>網站</th>
             <th>操作1</th>
+            @can('admin')
             <th>操作2</th>
             <th>操作3</th>
+            @elsecan('manager')
+            <th>操作2</th>
+            @endcan
         </tr>
 
         @foreach ($brands as $brand)
@@ -36,6 +40,7 @@
             <td>{{ $brand->headquarters}} </td>
             <td>{{ $brand->web}} </td>
             <td><a href="{{ route('brands.show',['id'=>$brand->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('brands.edit',['id'=>$brand->id]) }}">修改</a></td>
             <td><form action="{{ url('/brands/delete', ['id' => $brand->id]) }}" method="post">
                     <input class="btn btn-default" type="submit" value="刪除" />
@@ -43,6 +48,9 @@
                     @csrf
                 </form>
             </td>
+        @elsecan('manager')
+        <td><a href="{{ route('brands.edit',['id'=>$brand->id]) }}">修改</a></td>
+        @endcan
         </tr>
         @endforeach
     </table>
