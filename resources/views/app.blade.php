@@ -56,20 +56,20 @@
 
         .bg-white {
             --bg-opacity: 1;
-            background-color: #fff;
-            background-color: rgba(255, 255, 255, var(--bg-opacity))
+            background-color: #FFFFFF;//框內背景色
+            background-color: rgba(173, 216, 230, var(--bg-opacity))
         }
 
         .bg-gray-100 {
             --bg-opacity: 1;
-            background-color: #f7fafc;
-            background-color: rgba(247, 250, 252, var(--bg-opacity))
+            background-color: #E0D9D3;  // 框外背景色
+            background-color: rgba(135, 206, 235, var(--bg-opacity));  
         }
 
         .border-gray-200 {
             --border-opacity: 1;
-            border-color: #edf2f7;
-            border-color: rgba(237, 242, 247, var(--border-opacity))
+            border-color: #F1E1FF;
+            border-color: rgba(241, 224, 255, var(--border-opacity))
         }
 
         .border-t {
@@ -285,6 +285,7 @@
         .grid-cols-1 {
             grid-template-columns: repeat(1, minmax(0, 1fr))
         }
+        
 
         @media (min-width: 640px) {
             .sm\:rounded-lg {
@@ -354,11 +355,11 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            .dark\:bg-gray-800 {
+        @media (prefers-color-scheme: dark) {//
+            .dark\:bg-gray-100 {
                 --bg-opacity: 1;
-                background-color: #2d3748;
-                background-color: rgba(45, 55, 72, var(--bg-opacity))
+                background-color: #FFB6C1;
+                background-color: rgba(255, 182, 193, var(--bg-opacity)); 
             }
 
             .dark\:bg-gray-900 {
@@ -381,29 +382,31 @@
 
             .dark\:text-gray-400 {
                 --text-opacity: 1;
-                color: #cbd5e0;
+                color: #FFB6C1;
                 color: rgba(203, 213, 224, var(--text-opacity))
             }
         }
     </style>
-
     <style>
-        body {
+        body 
+        {
             font-family: 'Nunito';
-        }
+        } 
     </style>
+
+
 </head>
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">首頁</a>
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">登入</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">註冊</a>
                 @endif
             @endif
         </div>
@@ -411,7 +414,7 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-            <img src={{ URL::asset('images/sp.png') }} width="100%"/>
+            <img src={{ URL::asset('images/saki3.gif') }} width="1500" height="400"/>
         </div>
         <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
             <div class="grid grid-cols-2 md:grid-cols-1">

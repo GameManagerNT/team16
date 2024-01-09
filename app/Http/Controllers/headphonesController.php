@@ -25,14 +25,14 @@ class HeadphonesController extends Controller
     {
          $headphones = Headphone::cheappirce()->paginate(10);
          $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
-         return view('headphones.index',['headphones' => $headphones, 'selectedGenre' => null]);
+         return view('headphones.index',['headphones' => $headphones,'genres' => $genres, 'selectedGenre' => null]);
     }
 
     public function richpirce()
     {
          $headphones = Headphone::richpirce()->paginate(10);
          $genres = Headphone::allGenres()->pluck('headphones.genre', 'headphones.genre');
-         return view('headphones.index',['headphones' => $headphones, 'selectedGenre' => null]);
+         return view('headphones.index',['headphones' => $headphones, 'genres' => $genres,'selectedGenre' => null]);
     }
 
     public function genre(Request $request)
