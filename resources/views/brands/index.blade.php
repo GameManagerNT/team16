@@ -43,7 +43,7 @@
             @can('admin')
             <td><a href="{{ route('brands.edit',['id'=>$brand->id]) }}">修改</a></td>
             <td><form action="{{ url('/brands/delete', ['id' => $brand->id]) }}" method="post">
-                    <input class="btn btn-default" type="submit" value="刪除" />
+                    <input class="btn btn-default" type="submit" value="刪除"style="background-color: red; color: white;" />
                     @method('delete')
                     @csrf
                 </form>

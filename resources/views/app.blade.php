@@ -54,7 +54,7 @@
             height: auto
         }
 
-        .bg-white {
+        .bg-white {//框內顏色
             --bg-opacity: 1;
              background-color: #add8e6; /* 淺藍色 */
             background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
@@ -66,9 +66,9 @@
             background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
         }
 
-        .border-gray-200 {
+        .border-gray-200 {//表格裡面顏色
             --bg-opacity: 1;
-             background-color: #add8e6; /* 淺藍色 */
+             background-color: #ff4400; /* 淺藍色 */
             background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
         }
 
@@ -121,7 +121,8 @@
         }
 
         .leading-7 {
-            line-height: 1.75rem
+            line-height: 1.75rem;
+            color : #ff5500;
         }
 
         .mx-auto {
@@ -354,17 +355,17 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: dark) {//表格上方
             .dark\:bg-gray-800 {
                 --bg-opacity: 1;
-                background-color: #add8e6; /* 淺藍色 */
-            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
+                background-color: #ff5500; /* 淺藍色 */
+            background-color: rgba(255, 85, 0, var(--bg-opacity)) /* 淺藍色 */
             }
 
-            .dark\:bg-gray-900 {
+            .dark\:bg-gray-900 {//表格外框
                 --bg-opacity: 1;
-                background-color: #add8e6; /* 淺藍色 */
-            background-color: rgba(173, 216, 230, var(--bg-opacity)) /* 淺藍色 */
+                background-color: #3772d0; /* 淺藍色 */
+            background-color: rgba(55,114,208, var(--bg-opacity)) /* 淺藍色 */
             }
 
             .dark\:border-gray-700 {
@@ -398,7 +399,7 @@
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                <a href="{{ url('/home') }}" class="my-2 p-2 btn btn-outline-primary">Home</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
