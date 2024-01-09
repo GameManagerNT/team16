@@ -117,11 +117,12 @@
         }
 
         .text-lg {
-            font-size: 1.125rem
+            font-size: 1.5rem
         }
 
         .leading-7 {
-            line-height: 1.75rem
+            line-height: 1.75rem;
+            color: #ff0000;
         }
 
         .mx-auto {
@@ -357,20 +358,20 @@
         @media (prefers-color-scheme: dark) {
             .dark\:bg-gray-800 {
                 --bg-opacity: 1;
-                background-color: #2d3748;
-                background-color: rgba(45, 55, 72, var(--bg-opacity))
+                background-color: #fff;
+                background-color: rgba(230, 230, 250, var(--bg-opacity))
             }
 
             .dark\:bg-gray-900 {
                 --bg-opacity: 1;
-                background-color: #1a202c;
-                background-color: rgba(26, 32, 44, var(--bg-opacity))
+                background-color: #fff;
+                background-color: rgba(75, 0, 130, var(--bg-opacity))
             }
 
             .dark\:border-gray-700 {
                 --border-opacity: 1;
                 border-color: #4a5568;
-                border-color: rgba(74, 85, 104, var(--border-opacity))
+                border-color: rgba(255, 255, 255, var(--border-opacity))
             }
 
             .dark\:text-white {
@@ -385,6 +386,7 @@
                 color: rgba(203, 213, 224, var(--text-opacity))
             }
         }
+
     </style>
 
     <style>
@@ -398,7 +400,7 @@
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                <a href="{{ url('/home') }}" class="text-sm text-white underline">Home</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -417,6 +419,9 @@
             <div class="grid grid-cols-2 md:grid-cols-1">
                 <div class="p-6">
                     @include('header')
+                </div>
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    @yield('HP_theme')
                 </div>
                 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                     @yield('HP_contents')

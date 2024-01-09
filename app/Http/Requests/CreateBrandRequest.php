@@ -14,29 +14,28 @@ class CreateBrandRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required',
-            'name' => 'required',
-            'country' => 'required',
-            'since' => 'required|numeric|min:0|max:2022',
-            'founder' => 'required',
-            'headquarters' => 'required',
-            'web' => 'required|string|min:0|max:1000',
+            'name' => 'required|string|min:2|max:100',
+            'country' => 'required|string|min:2|max:100',
+            'since' => 'nullable',
+            'founder' => 'required|string|min:2|max:100',
+            'headquarters' => 'required|string|min:2|max:100',
+            'web' => 'required|string|min:2|max:100',
         ];
     }
+
     public function messages()
     {
         return [
-            "id.required" => "廠牌編號 為必填", 
-            "name.required" => "廠牌名稱 為必填",
-            "country.required" => "廠牌國家 為必填",
-            "since.required" => "成立日期 為必填",
-            "since.numeric" => "成立日期 必須為數字",
-            "since.min" => "成立日期 範圍必須介於0~2022之間",
-            "since.max" => "成立日期 範圍必須介於0~2022之間",
+            "name.required" => "廠商名稱 為必填",
+            "name.min" => "廠商名稱 至少需2個字元",
+            "country.required" => "國家 為必填",
+            "country.min" => "國家 至少需2個字元",
             "founder.required" => "創辦人 為必填",
-            "headquarters.required" => "廠牌總部 為必填",
-            "web.required" => "廠牌網站 為必填",
+            "founder.min" => "創辦人 至少需2個字元",
+            "headquarters.required" => "總部 為必填",
+            "headquarters.min" => "總部 至少需2個字元",
+            "web.required" => "網站 為必填",
+            "web.min" => "網站 至少需2個字元",
         ];
-    }    
+    }
 }
-

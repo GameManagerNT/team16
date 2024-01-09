@@ -20,7 +20,7 @@
 </div>
 
 <table>
-    <tr>
+<tr style="background-color: #f2f2f2;"> <!-- Set your desired background color here -->
         <th>編號</th>
         <th>耳機名稱</th>
         <th>種類</th>
@@ -54,7 +54,7 @@
             <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}">修改</a></td>    
             <td>
                 <form action="{{ url('/headphones/delete',['id'=>$headphone->id])}}"method="post">
-                    <input class="btn btn-default"type="submit"value="刪除" />
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('確定要刪除嗎？')">刪除</button>
                     @method('delete')
                     @csrf
                 </form>

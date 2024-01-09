@@ -3,7 +3,7 @@
 
 @section('title', '列出指定耳機')
 
-@section('HP_theme','你所選擇的球員資料')
+@section('HP_theme','你所選擇的耳機資料')
 
 @section('HP_contents') 
 <h1>顯示單一廠牌</h1>

@@ -6,7 +6,7 @@
 @section('HP_theme', '耳機廠牌')
 
 @section('HP_contents')
-<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+<div class="p-6 border-t border-red-200 dark:border-red-700 md:border-t-0 md:border-l">
     @can('admin')
     <a href="{{ route('brands.create') }} ">新增廠牌</a>
     @endcan
@@ -15,7 +15,7 @@
 </div>
 
 <table>
-    <tr>
+    <tr style="background-color: #f2f2f2;">
         <th>編號</th>
         <th>品牌名稱</th>
         <th>國家</th>
@@ -45,7 +45,7 @@
             <td><a href="{{ route('brands.edit', ['id'=>$brand->id]) }}">修改</a></td>    
             <td>
                 <form action="{{ url('/brands/delete', ['id' => $brand->id]) }}" method="post">
-                    <input class="btn btn-default" type="submit" value="刪除" />
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('確定要刪除嗎？')">刪除</button>
                     @method('delete')
                     @csrf
                 </form>
