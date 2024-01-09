@@ -55,7 +55,7 @@
             @can('admin')
             <td><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
             <td><form action="{{ url('/headphones/delete', ['id' => $headphone->id]) }}" method="post">
-                    <input class="btn btn-default" type="submit" value="刪除" />
+                    <input class="btn btn-default" type="submit" value="刪除"style="background-color: red; color: white;" />
                     @method('delete')
                     @csrf
                 </form>
