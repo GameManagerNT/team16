@@ -52,7 +52,8 @@ class HeadphonesTableSeeder extends Seeder
     public function generateRandGenre(){
         $genres=array(
             '封閉式耳機',
-            '入耳式耳機'
+            '入耳式耳機',
+            '開放式耳機',
         );
         return $genres [rand(0,count($genres)-1)];
     }
@@ -82,7 +83,7 @@ class HeadphonesTableSeeder extends Seeder
             '20 - 19000Hz',
             '18 - 20000Hz',
             '22 - 18000Hz',
-            '21 - 19000',
+            '21 - 19000Hz',
             '19 - 21000Hz',
             '20 - 18000Hz',
             '23 - 20000Hz',
