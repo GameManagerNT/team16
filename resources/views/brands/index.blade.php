@@ -12,7 +12,7 @@
 
 </div>
 
-    <table>
+    <table class ="table table-hover">
         <tr>
             <th>編號</th>
             <th>廠牌</th>

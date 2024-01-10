@@ -13,13 +13,13 @@
     <form action="{{ url('headphones/genre') }}" method='GET'>
         {!! Form::label('gen', '選取位置：') !!}
         {!! Form::select('gen', $genres, $selectedGenre, ['class' => 'form-control']) !!}
-        <input class="btn btn-default" type="submit" value="查詢" />
+        <input class="btn btn-default" type="submit" value="查詢"style="background-color: green; color: white;" />
         @csrf
     </form> 
 
 
 </div>
-    <table>
+    <table class ="table table-hover">
         <tr>
             <th>編號</th>
             <th>廠商</th>
