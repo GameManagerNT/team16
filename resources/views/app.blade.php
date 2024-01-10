@@ -401,7 +401,7 @@
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/home') }}" class="my-2 p-2 btn btn-outline-primary">首頁</a>
+                <a href="{{ url('/home') }}" class="my-2 p-2 btn btn-outline-primary"style="background-color: orange; color: white;">首頁</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">登入</a>
 
