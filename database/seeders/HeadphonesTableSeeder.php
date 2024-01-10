@@ -284,5 +284,5 @@ class HeadphonesTableSeeder extends Seeder
     
             ]);
         }
-    }
+    } 
 }

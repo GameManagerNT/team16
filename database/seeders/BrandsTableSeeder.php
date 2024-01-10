@@ -208,7 +208,7 @@ class BrandsTableSeeder extends Seeder
 
         DB::table('brands')->insert([
             'name' => $name,
-            'country' =>$country ,
+            'country' =>$country , 
             'since' => $since,
             'founder' =>$founder,
             'headquarters' =>$headquarters,

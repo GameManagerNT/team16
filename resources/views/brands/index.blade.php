@@ -10,7 +10,7 @@
     <a href="{{ route('brands.index') }}" style="color:#FF5500; font-weight: bold; font-style: italic;">所有廠牌</a>&nbsp;
     <a href="{{ route('brands.classic') }}" style="color: #FF5500; font-weight: bold; font-style: italic;">經典廠牌</a>&nbsp;
 
-    <table style="border-collapse: collapse; width: 100%;">
+    <table class = "table table-hover" >
         <thead>
             <tr>
                 <th style="border: 1px solid black; white-space: nowrap;">編號</th>
@@ -45,7 +45,7 @@
 
                 <td style="border: 1px solid black;">
                     <form action="{{ url('/brands/delete', ['id' =>$brand->id]) }}" method="post">
-                        <input class="btn btn-default" type="submit" value="刪除" />
+                        <input class="btn btn-default" type="submit" value="刪除" style = "background-color: brown; color: white;" />
                         @method('delete')
                         @csrf
                     </form>

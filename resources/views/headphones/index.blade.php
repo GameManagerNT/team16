@@ -15,27 +15,27 @@
     <form action="{{ url('headphones/genre') }}" method='GET'>
         {!! Form::label('gen', '選取類型:') !!}
         {!! Form::select('gen', $genres, $selectedGenre,['class' => 'form-control']) !!}
-        <input class="btn btn-default" type="submit" value="查詢 " />
+        <input class="btn btn-default" type="submit" value="查詢 " style = "background-color: green; color: white;" />
     </form>
 </div>
-<table style="border-collapse: collapse; width: 100%;">
+<table class = "table table-hover" >
     <tr>
-        <th style="border: 1px solid black;">編號</th>
-        <th style="border: 1px solid black;">廠商</th>
-        <th style="border: 1px solid black;">型號</th>
-        <th style="border: 1px solid black;">類型</th>
-        <th style="border: 1px solid black;">響應頻率(HZ)</th>
-        <th style="border: 1px solid black;">聲壓級(db/mW)</th>
-        <th style="border: 1px solid black;">抗阻(Ω)</th>
-        <th style="border: 1px solid black;">重量(g)</th>
-        <th style="border: 1px solid black;">傳輸</th>
-        <th style="border: 1px solid black;">價格(NTD)</th>
-        <th style="border: 1px solid black;">操作1</th>
+        <th style="border: 1px solid black;white-space: nowrap;">編號</th>
+        <th style="border: 1px solid black;white-space: nowrap;">廠商</th>
+        <th style="border: 1px solid black;white-space: nowrap;">型號</th>
+        <th style="border: 1px solid black;white-space: nowrap;">類型</th>
+        <th style="border: 1px solid black;white-space: nowrap;">響應頻率(HZ)</th>
+        <th style="border: 1px solid black;white-space: nowrap;">聲壓級(db/mW)</th>
+        <th style="border: 1px solid black;white-space: nowrap;">抗阻(Ω)</th>
+        <th style="border: 1px solid black;white-space: nowrap;">重量(g)</th>
+        <th style="border: 1px solid black;white-space: nowrap;">傳輸</th>
+        <th style="border: 1px solid black;white-space: nowrap;">價格(NTD)</th>
+        <th style="border: 1px solid black;white-space: nowrap;">操作1</th>
         @can('admin')
-        <th style="border: 1px solid black;">操作2</th>
-        <th style="border: 1px solid black;">操作3</th>
+        <th style="border: 1px solid black;white-space: nowrap;">操作2</th>
+        <th style="border: 1px solid black;white-space: nowrap;">操作3</th>
         @elsecan('manager')
-        <th style="border: 1px solid black;">操作2</th>
+        <th style="border: 1px solid black;white-space: nowrap;">">操作2</th>
         @endcan
 
     </tr>
@@ -56,7 +56,7 @@
         <td style="border: 1px solid black;"><a href="{{ route('headphones.edit',['id'=>$headphone->id]) }}">修改</a></td>
         <td style="border: 1px solid black;">
             <form action="{{ url('/headphones/delete', ['id' =>$headphone->id])}}" method="post">
-                <input class="btn btn-default" type="submit" value="刪除" />
+                <input class="btn btn-default" type="submit" value="刪除" style = "background-color: brown; color: white;"  />
                 @method('delete')
                 @csrf
             </form>
