@@ -23,7 +23,7 @@ class Headphone extends Model
 
     public function brand()
     {
-        return $this->belongsTo('App\Models\brand','tid','id');
+        return $this->belongsTo('App\Models\Brand','tid','id');
     }
     
     public function scopecheap($query)

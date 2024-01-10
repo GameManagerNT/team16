@@ -14,7 +14,7 @@
     <a href="{{ route('brands.classic') }} ">經典廠牌</a>
 </div>
 
-<table>
+<table class = "table table-hover">
     <tr style="background-color: #f2f2f2;">
         <th>編號</th>
         <th>品牌名稱</th>
@@ -40,9 +40,9 @@
             <td>{{ $brand->founder }}</td>
             <td>{{ $brand->headquarters }}</td>
             <td>{{ $brand->web }}</td>
-            <td><a href="{{ route('brands.show', ['id'=>$brand->id]) }}">顯示</a></td>
+            <td><a href="{{ route('brands.show', ['id'=>$brand->id]) }}" style = "background-color: blue; color: white;">顯示</a></td>
             @can('admin')
-            <td><a href="{{ route('brands.edit', ['id'=>$brand->id]) }}">修改</a></td>    
+            <td><a href="{{ route('brands.edit', ['id'=>$brand->id]) }}" style = "background-color: green; color: white;">修改</a></td>    
             <td>
                 <form action="{{ url('/brands/delete', ['id' => $brand->id]) }}" method="post">
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('確定要刪除嗎？')">刪除</button>
@@ -51,7 +51,7 @@
                 </form>
             </td>
             @elsecan('manager')
-            <td><a href="{{ route('brands.edit', ['id'=>$brands->id]) }}">修改</a></td>    
+            <td><a href="{{ route('brands.edit', ['id'=>$brand->id]) }}">修改</a></td>    
             @endcan
         </tr>
     @endforeach

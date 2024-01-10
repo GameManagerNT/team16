@@ -20,7 +20,7 @@ class Brand extends Model
     ];
     public function headphones()
     {
-        return $this->hasmany('App\Models\headphone','tid');
+        return $this->hasmany('App\Models\Headphone','tid');
     }
     public function delete()
     {

@@ -15,11 +15,11 @@
     <form action="{{ url('headphones/genre') }}" method='GET'>
         {!! Form::label('gen', '選取種類：') !!}
         {!! Form::select('gen', $genres, $selectedGenre, ['class' => 'form-control']) !!}
-        <input class="btn btn-default" type="submit" value="查詢" />
+        <input class="btn btn-default" type="submit" value="查詢" style = "background-color: green; color: white;" >
     </form>    
 </div>
 
-<table>
+<table class = "table table-hover">
 <tr style="background-color: #f2f2f2;"> <!-- Set your desired background color here -->
         <th>編號</th>
         <th>耳機名稱</th>
@@ -49,15 +49,15 @@
             <td>{{ $headphone->weight }}</td>
             <td>{{ $headphone->ts }}</td>
             <td>{{ $headphone->price }}</td>
-            <td><a href="{{ route('headphones.show', ['id'=>$headphone->id]) }}">顯示</a></td>
+            <td><a href="{{ route('headphones.show', ['id'=>$headphone->id]) }}" style = "background-color: blue; color: white;">顯示</a></td>
             @can('admin')
-            <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}">修改</a></td>    
+            <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}" style = "background-color: green; color: white;">修改</a></td>    
             <td>
                 <form action="{{ url('/headphones/delete',['id'=>$headphone->id])}}"method="post">
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('確定要刪除嗎？')">刪除</button>
                     @method('delete')
                     @csrf
-                </form>
+                </form> 
             </td>        
             @elsecan('manager')
             <td><a href="{{ route('headphones.edit', ['id'=>$headphone->id]) }}">修改</a></td>
